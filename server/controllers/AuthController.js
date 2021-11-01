@@ -55,6 +55,7 @@ class AuthController {
             return res.status(400).json({message: 'Incorrect Password.'})
         }
 
+        // Generate
         const token = jwt.sign({user_id: user._id, email: user.email}, process.env.JWT_SECRET_KEY, {expiresIn: '24h'});
 
         res.status(200).json({token});        
